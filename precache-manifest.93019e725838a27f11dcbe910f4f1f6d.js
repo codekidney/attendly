@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b3537f0e11dbceb79ecc88d03ab97048",
+    "revision": "fd1208d7d5a2a34b2e24a4e8e3087fcc",
     "url": "/attendly/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/attendly/static/css/2.510409cd.chunk.css"
   },
   {
-    "revision": "6442896e4aceb511aa93",
+    "revision": "12ecefb564fee051dc0d",
     "url": "/attendly/static/css/main.34de6062.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/attendly/static/js/2.beb3116b.chunk.js"
   },
   {
-    "revision": "6442896e4aceb511aa93",
-    "url": "/attendly/static/js/main.7e7f2c28.chunk.js"
+    "revision": "12ecefb564fee051dc0d",
+    "url": "/attendly/static/js/main.ce8c7a3b.chunk.js"
   },
   {
     "revision": "57eb8513d637fb0b1c26",

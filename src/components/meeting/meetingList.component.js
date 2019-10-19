@@ -5,7 +5,9 @@ import { Accordion, Card, Button } from 'react-bootstrap';
 
 const MeetingList = (props) => {
     
-    return (
+    return (props.items.length === 0) ? (
+        <div></div>
+    ) : (
         <Accordion className="MeetingList">
             {props.items.map( (item, index) => {
             return (

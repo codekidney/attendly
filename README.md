@@ -3,17 +3,17 @@
 ## Zadanie
 Twoim zadaniem jest napisanie prostej aplikacji do planowania spotkań.
 
-###Jako użytkownik aplikacji mogę:
-○ obejrzeć listę spotkań posortowanych wg daty rozpoczęcia spotkania;
-○ dodać spotkanie;
-○ usunąć spotkanie;
-○ filtrować listę spotkań po zakresie dat.
+### Jako użytkownik aplikacji mogę:
+* obejrzeć listę spotkań posortowanych wg daty rozpoczęcia spotkania;
+* dodać spotkanie;
+* usunąć spotkanie;
+* filtrować listę spotkań po zakresie dat.
 
-###Każde spotkanie powinno zawierać:
-● Tytuł;
-● Opis;
-● Datę i godzinę od;
-● Datę i godzinę do.
+### Każde spotkanie powinno zawierać:
+* Tytuł;
+* Opis;
+* Datę i godzinę od;
+* Datę i godzinę do.
 
 Kliknięcie na element spotkania na liście powinno rozwinąć opis spotkania bezpośrednio pod
 klikniętym elementem.

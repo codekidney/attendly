@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/attendly/static/css/main.34de6062.chunk.css",
+    "main.js": "/attendly/static/js/main.8349eb0c.chunk.js",
+    "main.js.map": "/attendly/static/js/main.8349eb0c.chunk.js.map",
+    "runtime-main.js": "/attendly/static/js/runtime-main.d0c2854b.js",
+    "runtime-main.js.map": "/attendly/static/js/runtime-main.d0c2854b.js.map",
+    "static/css/2.510409cd.chunk.css": "/attendly/static/css/2.510409cd.chunk.css",
+    "static/js/2.beb3116b.chunk.js": "/attendly/static/js/2.beb3116b.chunk.js",
+    "static/js/2.beb3116b.chunk.js.map": "/attendly/static/js/2.beb3116b.chunk.js.map",
+    "index.html": "/attendly/index.html",
+    "precache-manifest.ba5c87e9fa195c5946d633eb445d4af9.js": "/attendly/precache-manifest.ba5c87e9fa195c5946d633eb445d4af9.js",
+    "service-worker.js": "/attendly/service-worker.js",
+    "static/css/2.510409cd.chunk.css.map": "/attendly/static/css/2.510409cd.chunk.css.map",
+    "static/css/main.34de6062.chunk.css.map": "/attendly/static/css/main.34de6062.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d0c2854b.js",
+    "static/css/2.510409cd.chunk.css",
+    "static/js/2.beb3116b.chunk.js",
+    "static/css/main.34de6062.chunk.css",
+    "static/js/main.8349eb0c.chunk.js"
+  ]
+}

@@ -5,7 +5,7 @@ import { Accordion, Card, Button } from 'react-bootstrap';
 
 const MeetingList = (props) => {
     
-    return (props.items.length === 0) ? (
+    return (!props.items) ? (
         <div></div>
     ) : (
         <Accordion className="MeetingList">

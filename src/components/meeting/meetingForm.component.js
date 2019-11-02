@@ -7,14 +7,10 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import MomentLocaleUtils from 'react-day-picker/moment';
-
+import shortid from 'shortid';
 import 'moment/locale/pl';
 import dateFnsParse from 'date-fns/parse';
 import dateFnsFormat from 'date-fns/format';
-
-const uniqId = () => {
-    return Math.round(new Date().getTime() + (Math.random() * 100));
-}
 
 const MeetingForm = () => {
     const [validated, setValidated] = useState(false);
@@ -59,7 +55,7 @@ const MeetingForm = () => {
         // Create Obj Meetng
 
         let meeting = {
-            id:          uniqId(),
+            id:          shortid.generate(),
             title:       form.elements.title.value,
             description: form.elements.description.value,
             startDate:   {

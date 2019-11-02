@@ -38,7 +38,6 @@ const HomeContainer = () => {
 
     const deleteMeeting = (e) => {
         const id = parseInt(e.target.value);
-        console.log(`Delete item with id: ${id}`);
         const filtered = meetings.filter(item => item.id !== id);
         setMeetings(filtered);
         localStorage.setItem("meetings", JSON.stringify(filtered));

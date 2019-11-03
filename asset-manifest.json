@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/attendly/static/css/main.02727a10.chunk.css",
-    "main.js": "/attendly/static/js/main.9ab263e9.chunk.js",
-    "main.js.map": "/attendly/static/js/main.9ab263e9.chunk.js.map",
+    "main.js": "/attendly/static/js/main.45d570dd.chunk.js",
+    "main.js.map": "/attendly/static/js/main.45d570dd.chunk.js.map",
     "runtime-main.js": "/attendly/static/js/runtime-main.8fef2da4.js",
     "runtime-main.js.map": "/attendly/static/js/runtime-main.8fef2da4.js.map",
     "static/css/2.a1fce5ec.chunk.css": "/attendly/static/css/2.a1fce5ec.chunk.css",
     "static/js/2.da9f5100.chunk.js": "/attendly/static/js/2.da9f5100.chunk.js",
     "static/js/2.da9f5100.chunk.js.map": "/attendly/static/js/2.da9f5100.chunk.js.map",
     "index.html": "/attendly/index.html",
-    "precache-manifest.aa8111d70ef7188f3427df830bf9c4ef.js": "/attendly/precache-manifest.aa8111d70ef7188f3427df830bf9c4ef.js",
+    "precache-manifest.695fe041d65d596c7a5a7e97fd15e2bd.js": "/attendly/precache-manifest.695fe041d65d596c7a5a7e97fd15e2bd.js",
     "service-worker.js": "/attendly/service-worker.js",
     "static/css/2.a1fce5ec.chunk.css.map": "/attendly/static/css/2.a1fce5ec.chunk.css.map",
     "static/css/main.02727a10.chunk.css.map": "/attendly/static/css/main.02727a10.chunk.css.map"
@@ -19,6 +19,6 @@
     "static/css/2.a1fce5ec.chunk.css",
     "static/js/2.da9f5100.chunk.js",
     "static/css/main.02727a10.chunk.css",
-    "static/js/main.9ab263e9.chunk.js"
+    "static/js/main.45d570dd.chunk.js"
   ]
 }

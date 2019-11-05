@@ -16,8 +16,8 @@ ReactDOM.render(
             <Row>
                 <Col>
                     <Switch>
-                        <Route path="/meeting/add" component={Meeting}/>
-                        <Route component={Home}/>
+                        <Route path={`${process.env.PUBLIC_URL}/meeting/add`} component={Meeting}/>
+                        <Route path={`${process.env.PUBLIC_URL}/`} component={Home}/>
                     </Switch>
                 </Col>
             </Row>

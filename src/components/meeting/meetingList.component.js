@@ -1,30 +1,56 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import { Accordion, Card, Button } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 
 const MeetingList = (props) => {
+    const [toggledRow, setToggledRow] = useState(false);
     
     return (!props.items) ? (
         <div></div>
     ) : (
-        <Accordion className="MeetingList">
+        <Table striped bordered hover className="MeetingList">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th onClick={() => props.handleSortBy('title-asc')} style={{width:'60%'}}>Tytuł</th>
+                    <th onClick={() => props.handleSortBy('startDate-asc')} style={{width:'15%'}}>Start</th>
+                    <th onClick={() => props.handleSortBy('endDate-asc')} style={{width:'15%'}}>Koniec</th>
+                    <th>Akcja</th>
+                </tr>
+            </thead>
+            <tbody>
             {props.items.map( (item, index) => {
             return (
-                <Card className="Meeting" key={item.id}>
-                    <Accordion.Toggle as={Card.Header} eventKey={index}>{item.startDate.date} | {item.title}</Accordion.Toggle>
-                    <Accordion.Collapse eventKey={index}>
-                        <Card.Body>
-                            <div className="Meeting__Description pb-3">Opis: {item.description}</div>
-                            <div className="Meeting__StartDate">Rozpocznie się: {item.startDate.date} o godz.: {item.startDate.time}</div>
-                            <div className="Meeting__EndDate pb-3">Zakończy się: {item.endDate.date} o godz.: {item.endDate.time}</div>
-                            <Button variant="primary" size="sm" value={item.id} onClick={props.handleDeleteMeeting}>Usuń wydarzenie</Button>
-                        </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
+                <tr key={item.id}>
+                    <td>{index+1}</td>
+                    <td>
+                        {toggledRow === item.id ? (
+                            <div>
+                                <div className="d-flex justify-content-between">
+                                    {item.title}
+                                    <Button variant="primary" size="sm ml-2" value={item.id} onClick={() => setToggledRow(false)}>Schowaj opis</Button>
+                                </div>
+                                <hr />
+                                {item.description}
+                            </div>
+                        ) : (
+                            <div className="d-flex justify-content-between">
+                                {item.title}
+                                <Button variant="primary" size="sm ml-2" value={item.id} onClick={() => setToggledRow(item.id)}>Pokaż Opis</Button>
+                            </div>
+                        )}
+                    </td>
+                    <td>{item.startDate.date}, {item.startDate.time}</td>
+                    <td>{item.endDate.date}, {item.endDate.time}</td>
+                    <td>
+                        <Button variant="primary" size="sm" value={item.id} onClick={props.handleDeleteMeeting}>Usuń</Button>
+                    </td>
+                </tr>
             )
             })}
-        </Accordion>
+            </tbody>
+        </Table>
     )
 }
 

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { MeetingList, MeetingFilter, Loading } from 'components';
-import { Button } from 'react-bootstrap';
+import { MeetingList, MeetingFilter, MeetingSortBy, Loading } from 'components';
 
 const HomeContainer = () => {
     const [ready, setReady] = useState(false);
@@ -29,38 +28,35 @@ const HomeContainer = () => {
                         meetingArr.push(newMeeting);
                     });
                     localStorage.setItem("meetings", JSON.stringify(meetingArr));
+                    setMeetings(meetingArr);
+                    setReady(true);
+                    return meetingArr;
                 }); 
                 
+            } else {
+                const meetings_LS = localStorage.getItem("meetings");
+                setMeetings(JSON.parse( meetings_LS ));
+                setReady(true);
         }
-        const meetings_LS = localStorage.getItem("meetings");
-        return JSON.parse( meetings_LS )
     }
 
     const deleteMeeting = (e) => {
-        const id = parseInt(e.target.value);
+        const id = e.target.value;
         const filtered = meetings.filter(item => item.id !== id);
         setMeetings(filtered);
         localStorage.setItem("meetings", JSON.stringify(filtered));
     }
 
-    const sortByStartDate = () => {
-        const sorted = [...meetings].sort((i1, i2) => {
-            const a = i1.startDate.date;
-            const b = i2.startDate.date;
-            return a > b ? 1 : a < b ? -1 : 0;
-        });
-        setMeetings(sorted);
-    }
-
+    
     const disableFilter = () => {
         setMeetings( getInitialData() );
     }
 
-    const filterDates = event => {
+    const onFilterDates = event => {
         const form = event.currentTarget;
         event.preventDefault();
         event.stopPropagation();
-
+        
         const startDate   = form.elements['startDate.date'].value;
         const endDate     = form.elements['endDate.date'].value;
         const initialData = getInitialData();
@@ -73,29 +69,73 @@ const HomeContainer = () => {
         }
     }
 
+    const __getPropByString = (obj, propString) => {
+        if (!propString)
+            return obj;
+    
+        var prop, props = propString.split('.');
+    
+        for (var i = 0, iLen = props.length - 1; i < iLen; i++) {
+            prop = props[i];
+    
+            var candidate = obj[prop];
+            if (candidate !== undefined) {
+                obj = candidate;
+            } else {
+                break;
+            }
+        }
+        return obj[props[i]];
+    }
+
+    const __sort = (arr, propStr) => {
+        const sorted = [...arr].sort((i1, i2) => {
+            const a = __getPropByString(i1, propStr);
+            const b = __getPropByString(i2, propStr);
+            return a > b ? 1 : a < b ? -1 : 0;
+        });
+        return sorted;
+    }
+    
+    const onSortBy = (type) => {
+        let sorted = [];
+        switch (type) {
+            case 'title-asc':
+                sorted = __sort(meetings, 'title');
+                break;
+            case 'title-desc':
+                sorted = __sort(meetings, 'title').reverse();
+                break;
+            case 'startDate-asc':
+                sorted = __sort(meetings, 'startDate.date');
+                break;
+            case 'startDate-desc':
+                sorted = __sort(meetings, 'startDate.date').reverse();
+                break;
+            case 'endDate-asc':
+                sorted = __sort(meetings, 'endDate.date');
+                break;
+            case 'endDate-desc':
+                sorted = __sort(meetings, 'endDate.date').reverse();
+                break;
+            default:
+                console.log('Type error: ' + type + '.');  
+        }
+        setMeetings(sorted);
+    }
+
     useEffect(() => {
-        setMeetings( getInitialData() );
-        setReady(true);
+        const data = getInitialData();
     }, []);
 
     return ready ? (
         <div className="Home">
             <h5 className="p-3 text-center">Lista spotkań:</h5>
-            <div className="pb-2">
-                <h5>Sortuj po:</h5>
-                <Button variant="primary" size="sm" onClick={sortByStartDate}>Sortowanie po dacie</Button>
-            </div>
-            <div className="pb-2">
-                <h5>Filtruj po dacie:</h5>
-                <MeetingFilter handleFilterDates={filterDates} handleDisableFilter={disableFilter} />
-            </div>
+            <MeetingSortBy handleSortBy={onSortBy}/>
+            <MeetingFilter handleFilterDates={onFilterDates} handleDisableFilter={disableFilter} />
             <div className="pb-2">
                 <h5>Lista:</h5>
-                <MeetingList items={meetings} handleDeleteMeeting={deleteMeeting}/>
-            </div>
-            <div className="pb-2">
-                <h5>Akcje:</h5>
-                <Button variant="primary" href="/meeting/add">Dodaj wydarzenie</Button>
+                <MeetingList items={meetings} handleDeleteMeeting={deleteMeeting} handleSortBy={onSortBy}/>
             </div>
         </div>
     )

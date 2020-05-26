@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/attendly/precache-manifest.52a08969a09f000add63f648349d9e33.js"
+  "/attendly/precache-manifest.588259807755c78b7d02ac50aa613288.js"
 );
 
 self.addEventListener('message', (event) => {

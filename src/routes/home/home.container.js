@@ -8,7 +8,7 @@ const HomeContainer = () => {
     const getInitialData = () => {
         if (localStorage.getItem("meetings") === null) {
             let meetingArr = []; 
-            fetch(`https://rkserv.hekko.pl/attendly/get/`)
+            fetch(`https://kamilnowak.com/github/attendly/get/`)
                 .then(response => response.json())
                 .then(data => {
                     data.forEach(function(item){
